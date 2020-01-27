@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+	<script>
+		function dispense(e) {
+			console.log('hehe')
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/dispense');
+			xhr.onload = function() {
+				var elem = document.querySelector('#response-text');
+				if (xhr.status === 200) {
+					    elem.innerHTML = 'RESPONSE:' + xhr.responseText;
+					}
+				    else {
+					    elem.innerHTML = 'Request failed.  Returned status of ' + xhr.status;
+				    }
+			};
+			xhr.send();
+
+			return false;
+
+		}
+	</script>
+		<img src="http://10.8.0.1:8081" height="480" width="640"></img>
+	<br>
+	<br>
+	<button onclick='dispense()'>Doggo wantz sum foodiez ,yes? </button>
+	<p id='response-text'></p>
+
+</body>
+</html>
+
